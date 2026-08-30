@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tasks</title>
-    <link rel="stylesheet" href="src/output.css">
+    <link rel="stylesheet" href="./src/output.css">
 </head>
-<body>
+<body class="bg-gray-950">
 
-    <div class="bg-amber-600">
-        <h1 class="underline">daily to-do list</h1>
+    <div class="bg-gray-800 m-3 rounded-md justify-between items-center flex">
+        <h1 class="text-gray-300 font-bold p-4 text-2xl">Daily To-Do List</h1>
+        <button onclick="closeWindow()" class="bg-gray-700 text-gray-300 rounded-md p-3 m-2 hover:bg-red-700 transition duration-400 hover:ease-in-out hover:shadow-2x1 hover:shadow-black" style="-webkit-app-region: no-drag;">
+            <img class="w-6 h-6" src="src/close.svg" alt="Close">
+        </button>
     </div>
 
-    <div class="container">
+    <div class="bg-gray-800 text-gray-300 m-3 mt-10 rounded-md p-4">
 
         <div class="input-row">
             <button id="addTask">+ Add Task</button>
@@ -88,6 +91,13 @@ input.addEventListener('keydown', (e) => {
 });
  
 updateCounter();
+
+const { ipcRenderer } = require('electron');
+
+function closeWindow() {
+    ipcRenderer.send('close-window');
+}
+
 </script>
 
 </body>
