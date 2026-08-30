@@ -1,0 +1,24 @@
+{
+  "name": "ant-tasks",
+  "version": "1.0.0",
+  "description": "Temporary task organizer for your daily routine.",
+  "homepage": "https://github.com/JoaoVictorZz/Ant-Tasks#readme",
+  "bugs": {
+    "url": "https://github.com/JoaoVictorZz/Ant-Tasks/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoaoVictorZz/Ant-Tasks.git"
+  },
+  "license": "ISC",
+  "author": "Poison",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "test": "Ant init"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "electron": "^44.0.0"
+  }
+}
