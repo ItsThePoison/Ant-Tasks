@@ -38,7 +38,6 @@
             width: 18px;
             height: 18px;
             cursor: pointer;
-            border-radius: 60px ;
             margin: 4px 8px 4px 4px;
             accent-color: oklch(52.7% 0.154 150.069);
             flex-shrink: 0;
@@ -66,7 +65,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-950">
+<body class="bg-gray-950 select-none">
 
     <div class="bg-gray-800 m-3 rounded-md justify-between items-center flex" style="-webkit-app-region: drag;">
         <h1 class="text-gray-300 font-bold p-4 text-2xl flex items-center gap-2">
@@ -90,6 +89,9 @@
             <button class="bg-gray-700 text-gray-300 font-bold cursor-pointer rounded-md p-3 m-2 hover:bg-green-700 transition duration-400 hover:ease-in-out" id="addTask">
                 + Add Task
             </button>
+            <button class="bg-gray-700 text-gray-300 font-bold cursor-pointer rounded-md p-3 m-2 hover:bg-red-700 transition duration-400 hover:ease-in-out" id="removeTask">
+                - Clear All
+            </button>
         </div>
 
         <ul id="taskList"></ul>
@@ -103,6 +105,7 @@ const input = document.getElementById('taskInput');
 const btnAdd = document.getElementById('addTask');
 const list = document.getElementById('taskList');
 const counter = document.getElementById('taskCounter');
+const removeAll = document.getElementById('removeTask');
 
 let taskCount = 0;
 
@@ -168,8 +171,13 @@ const { ipcRenderer } = require('electron');
 
 function closeWindow() {
     ipcRenderer.send('close-window');
-}
+};
 
+removeAll.addEventListener('click', () => {
+    list.innerHTML = '';
+    taskCount = 0;
+    updateCounter();
+})
 </script>
 
 </body>

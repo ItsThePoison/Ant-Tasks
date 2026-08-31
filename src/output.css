@@ -415,6 +415,10 @@
     --tw-duration: 400ms;
     transition-duration: 400ms;
   }
+  .select-none {
+    -webkit-user-select: none;
+    user-select: none;
+  }
   .text-shadow-black {
     --tw-text-shadow-color: #000;
     @supports (color: color-mix(in lab, red, red)) {
